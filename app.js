@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const postModel = require("./models/post.model");
@@ -30,14 +32,13 @@ app.delete('/:id', (req, res) => {
     res.status(200).json({id})
 })
 
+const PORT = process.env.PORT || 3000
 
-const DB_URL = "mongodb+srv://coderdim:KUYg3TTRI4AVMjNj@cluster0.nkyh1sp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-const PORT = 3000
 
 
 const bootstrap = async () => {
     try {
-        await mongoose.connect(DB_URL)
+        await mongoose.connect(process.env.DB_URL)
          .then(()=>console.log("MongoDB connected...."))
          .catch((error)=>console.log("Mongo DB Ulanib bomadi",error))
         app.listen(PORT, ()=> {
