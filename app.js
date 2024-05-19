@@ -4,37 +4,29 @@ const express = require("express");
 const mongoose = require("mongoose");
 const postModel = require("./models/post.model");
 
+// Routes
+const postRouter = require('./routes/post.route');
+
 const app = express();
 
 app.use(express.json());
 
-app.get('/', async (req, res) => {
-    try {
-        const allPost = await postModel.find()
-        res.status(200).json(allPost)
-    } catch (error) {
-        res.status(500).json(error)
-    }
-})
 
-app.post('/', async (req, res) => {
-    try {
-        const {title, body} = req.body
-        const newPost = await postModel.create({title,body})
-        res.status(201).json(newPost)
-    } catch (error) {
-        res.status(500).json(error)          
-    }
-})
+// Routes
+app.use("/api/post",postRouter)
 
-app.delete('/:id', (req, res) => {
-    const id = req.params.id
-    res.status(200).json({id})
-})
+// app.get('/',)
+
+// app.post('/', async (req, res) => {
+//     
+// })
+
+// app.delete('/:id', (req, res) => {
+//     const id = req.params.id
+//     res.status(200).json({id})
+// })
 
 const PORT = process.env.PORT || 3000
-
-
 
 const bootstrap = async () => {
     try {
@@ -50,3 +42,5 @@ const bootstrap = async () => {
     }
 }
 bootstrap()
+
+//1:33:00
