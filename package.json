@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backed app",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js"
+  },
+  "keywords": [
+    "NodeJS",
+    "ExpressJS"
+  ],
+  "author": "Abdulaziz Rustamov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "uuid": "^9.0.1"
+  }
+}
