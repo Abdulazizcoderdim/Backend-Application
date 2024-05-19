@@ -1,9 +1,10 @@
 const postModel = require("../models/post.model")
+const postService = require("../server/post.service")
 
 class PostController {
   async getAll(req, res) {
     try {
-      const allPost = await postModel.find()
+      const allPost = await postService.getAll()
       res.status(200).json(allPost)
     } catch (error) {
       res.status(500).json(error)
@@ -12,13 +13,14 @@ class PostController {
 
   async create(req, res) {
     try {
-      const { title, body } = req.body
-      const newPost = await postModel.create({ title, body })
-      res.status(201).json(newPost)
+      const post = await postService.create(req.body) 
+      res.status(201).json(post)
     } catch (error) {
       res.status(500).json(error)
     }
   }
+
+
 }
 
 module.exports = new PostController()
