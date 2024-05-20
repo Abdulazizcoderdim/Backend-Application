@@ -2,10 +2,8 @@ require('dotenv').config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const postModel = require("./models/post.model");
 
 // Routes
-const postRouter = require('./routes/post.route');
 
 const app = express();
 
@@ -13,18 +11,8 @@ app.use(express.json());
 
 
 // Routes
-app.use("/api/post",postRouter)
+app.use("/api/post", require('./routes/post.route'))
 
-// app.get('/',)
-
-// app.post('/', async (req, res) => {
-//     
-// })
-
-// app.delete('/:id', (req, res) => {
-//     const id = req.params.id
-//     res.status(200).json({id})
-// })
 
 const PORT = process.env.PORT || 3000
 

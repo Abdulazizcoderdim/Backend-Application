@@ -1,4 +1,4 @@
-const postModel = require('./models/post.model')
+const postModel = require("../models/post.model")
 
 class PostService {
     async create(post) {
@@ -13,3 +13,5 @@ class PostService {
 }
 
 module.exports = new PostService()
+
+//1:48:00
