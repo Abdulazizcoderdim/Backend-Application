@@ -11,5 +11,3 @@ router.get('/get-one/:id', postController.getOne)
 
 
 module.exports = router
-
-//2:03:00
