@@ -1,14 +1,17 @@
 require('dotenv').config();
 
 const express = require("express");
+const fileUpload = require('express-fileupload');
 const mongoose = require("mongoose");
 
 // Routes
 
 const app = express();
 
+// Midleware
 app.use(express.json());
-
+app.use(express.static('static'));
+app.use(fileUpload({useTempFiles: true}));
 
 // Routes
 app.use("/api/post", require('./routes/post.route'))
@@ -30,5 +33,3 @@ const bootstrap = async () => {
     }
 }
 bootstrap()
-
-//1:33:00
