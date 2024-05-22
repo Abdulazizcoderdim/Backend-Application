@@ -3,6 +3,7 @@ const postService = require("../server/post.service")
 class PostController {
   async getAll(req, res) {
     try {
+      console.log(req.requestTime)
       const allPost = await postService.getAll()
       res.status(200).json(allPost)
     } catch (error) {

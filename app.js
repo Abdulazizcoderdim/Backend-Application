@@ -3,12 +3,14 @@ require('dotenv').config();
 const express = require("express");
 const fileUpload = require('express-fileupload');
 const mongoose = require("mongoose");
+const requestTime = require('./middllewares/request-time');
 
 // Routes
 
 const app = express();
 
 // Midleware
+app.use(requestTime);
 app.use(express.json());
 app.use(express.static('static'));
 app.use(fileUpload({useTempFiles: true}));
