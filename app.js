@@ -4,6 +4,7 @@ const express = require("express");
 const fileUpload = require('express-fileupload');
 const mongoose = require("mongoose");
 const requestTime = require('./middllewares/request-time');
+const logger = require('./middllewares/logger');
 
 // Routes
 
